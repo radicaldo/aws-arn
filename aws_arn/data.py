@@ -1856,7 +1856,15 @@ aws_arn_data = {
             "id_regexp": "^[a-zA-Z0-9+=,.@-_]{1,128}$",
             "asff_name": "AwsIamPolicy",
             "cloudformation": "AWS::IAM::Policy",
-            "terraform": "aws_iam_policy",
+            "terraform": "aws_iam_policy"
+        },
+        "managedpolicy": {
+            "arn_format": "arn:{partition}:iam::{account}:policy/{resource_id}",
+            "id_name": "PolicyName",
+            "id_regexp": "^[a-zA-Z0-9+=,.@-_]{1,128}$",
+            "asff_name": "AwsIamPolicy",
+            "cloudformation": "AWS::IAM::Policy",
+            "terraform": "aws_iam_policy"
         },
         "role": {
             "arn_format": "arn:{partition}:iam::{account}:role/{resource_id}",
@@ -3571,7 +3579,23 @@ aws_arn_data = {
             "asff_name": "",
             "cloudformation": "AWS::SES::ConfigurationSet",
             "terraform": "aws_ses_configuration_set",
-        }
+        },
+        "identity": {
+            "arn_format": "arn:{partition}:ses:{region}:{account}:identity/{resource_id}",
+            "id_name": "IdentityName",
+            "id_regexp": "^[a-zA-Z0-9._-]{1,256}$",
+            "asff_name": "",
+            "cloudformation": "AWS::SES::Identity",
+            "terraform": "aws_ses_identity",
+        },
+        "receipt_rule_set": {
+            "arn_format": "arn:{partition}:ses:{region}:{account}:receipt-rule-set/{resource_id}",
+            "id_name": "RuleSetName",
+            "id_regexp": "^[a-zA-Z0-9_-]{1,64}$",
+            "asff_name": "",
+            "cloudformation": "AWS::SES::ReceiptRuleSet",
+            "terraform": "aws_ses_receipt_rule_set",
+        },
     },
     "shield": {
         "protection": {
